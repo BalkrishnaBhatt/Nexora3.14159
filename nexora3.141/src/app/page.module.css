@@ -1,19 +1,12 @@
 .page {
-  --gray-rgb: 0, 0, 0;
-  --gray-alpha-200: rgba(var(--gray-rgb), 0.08);
-  --gray-alpha-100: rgba(var(--gray-rgb), 0.05);
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-
-  display: grid;
-  grid-template-rows: 20px 1fr 20px;
+   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-items: center;
-  min-height: 100svh;
-  padding: 80px;
-  gap: 64px;
+  justify-content: center;
+  background: #fff; /* or your preferred background */
   font-family: var(--font-geist-sans);
+  gap: 32px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -26,7 +19,133 @@
     --button-secondary-hover: #1a1a1a;
   }
 }
+.response_container {
+  background: #181c23;
+  border-radius: 18px;
+  border: 2px solid #b71c1c;
+  box-shadow: 0 4px 32px 0 #000a, 0 1.5px 0 #ffd700 inset;
+  padding: 1.5rem 1.2rem;
+  margin: 2rem auto;
+  max-width: 520px;
+  min-width: 320px;
+  max-height: 480px;
+  width: 100%;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  transition: box-shadow 0.2s;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
 
+/* Optional: Hide scrollbars on Webkit browsers for a cleaner look */
+.response_container::-webkit-scrollbar {
+  width: 8px;
+  background: #23272f;
+}
+.response_container::-webkit-scrollbar-thumb {
+  background: #b71c1c;
+  border-radius: 8px;
+}
+
+@media (max-width: 600px) {
+  .response_container {
+    max-width: 98vw;
+    max-height: 60vh;
+    padding: 1rem 0.5rem;
+    white-space: pre-line;
+  }
+}
+
+.response_container h3,
+.response_container h4 {
+  color: #ffd700;
+  margin-top: 0;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
+  text-shadow: 0 0 8px #b71c1c55;
+}
+
+.response_container h4 {
+  font-size: 1.2rem;
+  color: #ff3c00;
+}
+
+.response_container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  background: #23272f;
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 1rem;
+}
+
+.response_container th,
+.response_container td {
+  padding: 0.7em 1em;
+  border-bottom: 1px solid #333;
+  text-align: left;
+}
+
+.response_container th {
+  background: #b71c1c;
+  color: #ffd700;
+  font-weight: 700;
+  font-size: 1.05em;
+}
+
+.response_container tr:last-child td {
+  border-bottom: none;
+}
+
+.response_container ul,
+.response_container ol {
+  margin: 1em 0 1em 1.5em;
+  padding: 0;
+  color: #ffd700;
+}
+
+.response_container li {
+  margin-bottom: 0.5em;
+  color: #f5f5f5;
+}
+
+.response_container code {
+  background: #23272f;
+  color: #ffd700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.98em;
+}
+
+.response_container hr {
+  border: none;
+  border-top: 1.5px solid #b71c1c;
+  margin: 2em 0;
+}
+
+.response_container strong {
+  color: #ffd700;
+}
+
+.response_container em {
+  color: #ff3c00;
+}
+
+@media (max-width: 900px) {
+  .response_container {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+    font-size: 0.98rem;
+  }
+  .response_container table {
+    font-size: 0.95rem;
+  }
+}
+  
 .main {
   display: flex;
   flex-direction: column;
@@ -34,6 +153,69 @@
   grid-row-start: 2;
 }
 
+.centered_output_box {
+  background: #181c23;
+  border-radius: 18px;
+  border: 2px solid #b71c1c;
+  box-shadow: 0 4px 32px 0 #000a, 0 1.5px 0 #ffd700 inset;
+  padding: 1.5rem 1.2rem;
+  margin: 2rem auto;
+  max-width: 420px;
+  min-width: 280px;
+  max-height: 340px;
+  width: 100%;
+  color: #f5f5f5;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* Center horizontally */
+  position: relative;
+  z-index: 1;
+}
+
+/* Custom scrollbar for better look */
+.centered_output_box::-webkit-scrollbar {
+  width: 8px;
+  background: #23272f;
+}
+.centered_output_box::-webkit-scrollbar-thumb {
+  background: #b71c1c;
+  border-radius: 8px;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .centered_output_box {
+    max-width: 96vw;
+    max-height: 40vh;
+    padding: 1rem 0.5rem;
+  }
+}
+
+
+/* table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+  
+} */
+
+.output {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: center;
+  margin: 5%;
+}
 .main ol {
   font-family: var(--font-geist-mono);
   padding-left: 0;
