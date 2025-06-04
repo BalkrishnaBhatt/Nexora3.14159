@@ -18,6 +18,7 @@ export default function Home() {
   const onFileChange = (event) => {
     setSelectedFile(event.target.files[0]);
   };
+
   const onFileUpload = () => {
     const formData = new FormData();
     formData.append(
@@ -26,8 +27,9 @@ export default function Home() {
       selectedFile.name
     );
     console.log(selectedFile);
-    axios.post("api/uploadfile", formData);
+    //axios.post("api/uploadfile", formData);
   };
+
   const fileData = () => {
     if (selectedFile) {
       return (
@@ -44,18 +46,18 @@ export default function Home() {
       return (
         <div>
           <br />
-          <h4>Choose before Pressing the Upload button</h4>
+          <h4>"ReIMAGINE Analytics: From Data Silos to Conversational Insights"</h4>
         </div>
       );
     }
   };
 
   async function Uploadclick() {
-      await model(text1);
+    await model(text1);
   }
 
 
-    async function model(text1) {
+  async function model(text1) {
     console.log(text1, "TTTTTTTTT777")
     const endpoint = "https://bh-uk-openai-thedatawatchers.openai.azure.com/";
     const modelName = "gpt-4o";
@@ -67,7 +69,7 @@ export default function Home() {
 
     const response = await client.chat.completions.create({
       messages: [
-        { role: "system", content:  modelContent },
+        { role: "system", content: modelContent },
         { role: "user", content: text1 }
       ],
       max_tokens: 4096,
@@ -92,23 +94,38 @@ export default function Home() {
 
     <div className={styles.page}>
       <h1>Nexora3.141</h1>
-      
-      <div>
-        <input type="file" onChange={onFileChange} />
-        <button onClick={Uploadclick}>Upload!</button>
-        
-      </div>
-      
-      
-      <input onChange={e => {setText1(e.target.value)}} name="myInput" />
 
-
-<div className={styles.centered_output_box}>
-  
-  <ReactMarkdown rehypePlugins={[remarkGfm]}>
-  {output || ""}
-</ReactMarkdown>
+    <div className={styles.upload_container}>
+  <input type="file" onChange={onFileChange} className={styles.file_input} />
+  <button onClick={Uploadclick} className={styles.upload_button}>Upload!</button>
 </div>
+<div className={styles.chat_input_container}>
+  <input
+    className={styles.chat_input}
+    placeholder="Add your Prompt..."
+    value={text1}
+    onChange={e => setText1(e.target.value)}
+    name="myInput"
+    onKeyDown={e => { if (e.key === "Enter") Uploadclick(); }}
+    autoComplete="off"
+  />
+  <button className={styles.send_button} onClick={Uploadclick} aria-label="Send">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
+      <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="#ffd700"/>
+    </svg>
+  </button>
+</div>
+
+{/* 
+      <input placeholder="Add a prompt!! " onChange={e => { setText1(e.target.value) }} name="myInput" /> */}
+
+
+      <div className={styles.centered_output_box}>
+
+        <ReactMarkdown rehypePlugins={[remarkGfm]}>
+          {output || ""}
+        </ReactMarkdown>
+      </div>
 
 
       {fileData()}
