@@ -109,11 +109,11 @@ export default function Home() {
     onKeyDown={e => { if (e.key === "Enter") Uploadclick(); }}
     autoComplete="off"
   />
-  <button className={styles.send_button} onClick={Uploadclick} aria-label="Send">
-    <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-      <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z" fill="#ffd700"/>
-    </svg>
-  </button>
+<button className={styles.send_button} onClick={Uploadclick} aria-label="Send">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M2 21L23 12L2 3V10L17 12L2 14V21Z"/>
+  </svg>
+</button>
 </div>
 
 {/* 
