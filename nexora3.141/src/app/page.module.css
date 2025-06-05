@@ -137,6 +137,7 @@
   width: 8px;
   background: #e6f4fa;
 }
+
 .centered_output_box::-webkit-scrollbar-thumb {
   background: var(--barclays-cerulean);
   border-radius: 8px;
@@ -149,6 +150,7 @@
     max-height: 40vh;
     padding: 1rem 0.5rem;
   }
+
   .chat_input_container {
     max-width: 96vw;
   }
@@ -158,6 +160,7 @@
   color: var(--barclays-white);
   /* ...rest of styles */
 }
+
 .send_button:hover {
   color: var(--barclays-cerulean);
   background: var(--barclays-astronaut);

@@ -9,6 +9,7 @@ input[type="file"]::-webkit-file-upload-button {
   box-shadow: 0 0 8px #00395d33;
   transition: background 0.2s;
 }
+
 input[type="file"]::-webkit-file-upload-button:hover {
   background: var(--barclays-astronaut);
   color: var(--barclays-cerulean);
@@ -32,10 +33,13 @@ h1 {
 }
 
 
-h2, h3, h4 {
+h2,
+h3,
+h4 {
   color: var(--barclays-cerulean);
 }
 
-p, li {
+p,
+li {
   color: var(--barclays-white);
 }
