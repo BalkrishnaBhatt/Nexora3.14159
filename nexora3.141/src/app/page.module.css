@@ -10,17 +10,43 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   background: var(--barclays-white);
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  gap: 32px;
+  gap: 0.5rem;
+  padding: 0;
+}
+
+.logoHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 0.2rem;
+  gap: 0.2rem;
+}
+
+.title {
+  color: var(--barclays-astronaut);
+  font-size: 2.2rem;
+  margin: 0.2rem 0 0 0;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.subtitle {
+  color: var(--barclays-cerulean);
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0.5rem 0;
+  font-weight: 600;
+  text-align: center;
 }
 
 .upload_container {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
-  margin-bottom: 1.2rem;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .file_input {
@@ -28,10 +54,10 @@
   color: var(--barclays-white);
   border: 2px solid var(--barclays-cerulean);
   border-radius: 8px;
-  padding: 0.5em 1em;
+  padding: 0.3em 0.8em;
   font-size: 1rem;
   transition: border 0.2s, background 0.2s;
-  box-shadow: 0 0 8px #00395d33;
+  box-shadow: 0 0 4px #00395d22;
 }
 
 .file_input:hover {
@@ -44,12 +70,12 @@
   color: var(--barclays-white);
   border: 2px solid var(--barclays-astronaut);
   border-radius: 8px;
-  padding: 0.5em 1.2em;
+  padding: 0.3em 1em;
   font-size: 1rem;
   font-weight: 500;
   cursor: pointer;
   transition: border 0.2s, background 0.2s, color 0.2s;
-  box-shadow: 0 0 8px #00395d33;
+  box-shadow: 0 0 4px #00395d22;
 }
 
 .upload_button:hover {
@@ -62,14 +88,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 1.5rem auto 0 auto;
+  margin: 0.7rem auto 0 auto;
   max-width: 420px;
   width: 100%;
   background: var(--barclays-astronaut);
   border-radius: 2rem;
-  box-shadow: 0 2px 12px #00395d33;
-  padding: 0.4rem 0.7rem 0.4rem 1rem;
-  gap: 0.5rem;
+  box-shadow: 0 1px 6px #00395d22;
+  padding: 0.2rem 0.5rem 0.2rem 0.8rem;
+  gap: 0.3rem;
 }
 
 .chat_input {
@@ -78,8 +104,8 @@
   outline: none;
   background: transparent;
   color: var(--barclays-white);
-  font-size: 1.08rem;
-  padding: 0.7rem 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem 0.3rem;
   border-radius: 2rem;
 }
 
@@ -92,35 +118,37 @@
   background: var(--barclays-cerulean);
   border: none;
   border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
+  width: 2rem;
+  height: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: background 0.2s;
-  box-shadow: 0 0 8px #00395d33;
-  margin-left: 0.3rem;
+  box-shadow: 0 0 4px #00395d22;
+  margin-left: 0.2rem;
+  color: var(--barclays-white);
 }
 
 .send_button:hover {
   background: var(--barclays-astronaut);
+  color: var(--barclays-cerulean);
 }
 
 .send_button svg path {
-  fill: var(--barclays-white);
+  fill: currentColor;
 }
 
 .centered_output_box {
   background: var(--barclays-astronaut);
-  border-radius: 18px;
+  border-radius: 14px;
   border: 2px solid var(--barclays-cerulean);
-  box-shadow: 0 4px 32px 0 #00395d33;
-  padding: 1.5rem 1.2rem;
-  margin: 2rem auto;
-  max-width: 520px;
-  min-width: 320px;
-  max-height: 340px;
+  box-shadow: 0 2px 12px 0 #00395d22;
+  padding: 1rem 0.7rem;
+  margin: 1rem auto 0 auto;
+  max-width: 480px;
+  min-width: 220px;
+  max-height: 260px;
   width: 100%;
   color: var(--barclays-white);
   font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
@@ -131,10 +159,11 @@
   justify-content: flex-start;
   position: relative;
   z-index: 1;
+  font-size: 0.98rem;
 }
 
 .centered_output_box::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
   background: #e6f4fa;
 }
 
@@ -143,25 +172,13 @@
   border-radius: 8px;
 }
 
-
 @media (max-width: 600px) {
   .centered_output_box {
-    max-width: 96vw;
+    max-width: 98vw;
     max-height: 40vh;
-    padding: 1rem 0.5rem;
+    padding: 0.7rem 0.3rem;
   }
-
   .chat_input_container {
-    max-width: 96vw;
+    max-width: 98vw;
   }
-}
-
-.send_button {
-  color: var(--barclays-white);
-  /* ...rest of styles */
-}
-
-.send_button:hover {
-  color: var(--barclays-cerulean);
-  background: var(--barclays-astronaut);
 }

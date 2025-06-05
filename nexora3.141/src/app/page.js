@@ -1,11 +1,9 @@
 "use client"
-import axios from "axios";
-import { Rnd } from "react-rnd";
+
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { AzureOpenAI } from "openai";
-
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -93,9 +91,19 @@ export default function Home() {
   return (
 
     <div className={styles.page}>
-      <h1>Nexora 3.141</h1>
-      <h4>"ReIMAGINE Analytics: From Data Silos to Conversational Insights"</h4>
-
+            <div className={styles.logoHeader}>
+  <Image
+    src="/nexora.png"
+    alt="Nexora Logo"
+    width={100}
+    height={100}
+    priority
+  />
+  <h1 className={styles.title}>Nexora 3.141</h1>
+</div>
+<h4 className={styles.subtitle}>
+  "ReIMAGINE Analytics: From Data Silos to Conversational Insights"
+</h4>
       <div className={styles.upload_container}>
         <input type="file" onChange={onFileChange} className={styles.file_input} />
         <button onClick={Uploadclick} className={styles.upload_button}>Upload!</button>
